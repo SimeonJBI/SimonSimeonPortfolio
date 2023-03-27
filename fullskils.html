@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <title>Home | Portfolio of Simeon</title>
+</head>
+<style>
+    @media (max-width: 375px){
+    .home_header{
+        position: fixed;
+        width: 100%;
+    }    
+    .home_intro .anime_img{
+        width: 700px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        animation-name: anime_img;
+        animation-duration: 8s;
+        animation-delay: 5s;
+        transition: 3s ease-out;
+        animation-iteration-count: infinite;
+    }
+    @keyframes anime_img {
+        0%  {opacity: 0;}
+        5% {opacity: 0.1;;}
+        25% {opacity: 0.3;}
+        50% {opacity: 0.6;}
+        50% {opacity: 0.6;}
+        25% {opacity: 0.3;}
+        5% {opacity: -0.1;}
+        100%  {opacity: 0;}
+    }
+    body{
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .home_intro{
+        display: block;
+    }
+    .home_about{
+        display: block;
+    }
+    .vertical_line{
+        display: none;
+    }
+    .about_me{
+        display: block;
+    }
+    .about_me > .about_img{
+        width: 100%;
+        text-align: center;
+    }
+    .about_me img{
+    width: 300px;
+    border-radius: 100px 100px 100px 100px;
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+    }
+    .about_me p, hr, h1{
+        width:100%;
+        text-align: justify;
+        /* padding-left: 10px;
+        padding-right: 10px; */
+        box-sizing: border-box;
+    }
+    .about_institut{
+        width:100%;
+        text-align: justify;
+        /* padding-left: 10px;
+        padding-right: 10px; */
+        box-sizing: border-box;
+    }
+    .contact_me{
+        width: 100%;
+        display: block;
+        justify-content: center;
+        justify-content: space-around;
+        /* grid-template-areas: 'left left left left left left' 
+                              'center center center center center center' 
+                              'right right right right right right' 
+                              'last last last last last last'; */
+    }
+    .intro h1{
+        text-align: center;
+        width: 100%;
+        font-size: 40px;
+    }
+    .intro h2{
+        text-align: center;
+        width: 100%;
+        font-size: 35px;
+    }
+    .intro h3{
+        text-align: center;
+        width: 100%;
+        font-size: 25px;
+    }
+    .animation {
+        width: 300px;
+        text-align: center;
+        height:70px;
+        overflow:hidden;
+        margin-left: 1rem;
+        /* font-size: 1.5rem; */
+        font-size: 20px;
+    }
+    .animation > div > div {
+        padding:0.3rem 0.3rem;
+        height:2rem;
+        margin-bottom: 2.81rem;
+        display:inline-block;
+        padding-top: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .photo{
+        width: 100%;
+        text-align: center;
+    }
+    .photo img{
+            margin-top: 60px;
+            width: 300px;
+            border-radius: 1500px 600px 2000px 500px;
+            box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+    }
+    .follow_me{
+        width: 300px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .follow_me h1{
+        width: 100%;
+        padding-left: 50px;
+    }
+    .video_me{
+        text-align: center;
+        width: 300px;
+    }
+    .video_me video{
+        margin-top: 70px;
+        margin-bottom: 20px;
+        width: 300px;
+    }
+    .contact{
+        width: 300px;
+        box-sizing: border-box;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .contact > form > input{
+        width: 100%;
+    }
+    .contact > form > textarea{
+        width: 100%;
+    }
+    .contact > form{
+        width: 300px;
+        padding: 20px;
+    }
+}
+    .contact_me{
+        /* display: grid;
+        grid-template-areas: 'left left center center right right' 'last last last last last last'; */
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+    }
+    main{
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .follow_me #img:hover{
+        transform: scale(1.1);
+        transition: 1s;
+    }
+    .follow_me #img{
+        width: 300px;
+        height: 300px;
+    }
+    .follow_me h1{
+        font-size: 20px;
+        color: white;
+        font-family: 'Passion','Conflict';
+    }
+    .follow_me .img:hover{
+        transform: scale(1.1);
+        transition: 1s;
+    }
+    .follow_me .img{
+        width: 50px;
+        margin-right: 20px;
+    }
+    .follow_me{
+        width: 400px;
+        height: 70vh;
+        grid-area: center;
+        /* background-color: rgb(25, 37, 37); */
+    }
+    .last{
+        height: 10vh;
+        grid-area: last;
+        /* background-color: aqua; */
+    }
+    .video_me video{
+        margin-top: 200px;
+        width: 300px;
+        box-shadow: 10px 10px 20px rgba(255, 255, 255, 0.2);
+    }
+    .video_me{
+        width: 300px;
+        grid-area: left;
+        /* background-color: aqua; */
+    }
+    .contact h1{
+        text-align: center;
+    }
+    .contact{
+        width: 300px;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        box-sizing: border-box;
+        background-image: url(/img/contak.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat; 
+        /* border-radius: 500px 600px 100px 500px; */
+        box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+        /* margin-left: 150px; */
+        grid-area: right;
+        margin: 50px;
+    }
+    .contact form{
+        width: 250px;
+        height: auto;
+        text-align: center;
+        margin: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        /* padding: 50px; */
+        border-radius: 20px;
+
+    }
+    .contact div{
+        background-color: #232533;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        line-height: 5px;
+        padding: 5px;
+        width: auto;
+    }
+    .contact form input{
+        margin-bottom: 5px;
+        width: 200px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        height: 30px;
+        outline: none;
+        font-size: 15px;
+    }
+    .contact form textarea{
+        width: 203px;
+        height: 36px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        outline: none;
+        font-size: 15px;
+    }
+    .contact form h1{
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 20px;
+        margin-top: 0;
+    }
+    .contact form button{
+        width: 100px;
+        height: 30px;
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: rgb(0, 0, 66);
+        border: none;
+        color: white;
+    }
+    .contact form button:hover{
+        background-color: rgb(118, 118, 238);
+        border: 0.5px solid darkblue;
+    }
+    /* ============================== */
+    .about_institut article > img{
+        width: 100px;
+        height: 50px;
+        margin-right: 10px;
+        float: left;
+    }
+    /* ============================== */
+    .footer h1{
+        width: 100%;
+        text-align: center;
+    }
+    .footer{
+        font-size: 10px;
+        text-align: center;
+        width: 100%;
+        height: 10vh;
+        background-color: #232533;
+        box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+        color: white;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    .home_intro .anime_img{
+        width: 700px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        animation-name: anime_img;
+        animation-duration: 8s;
+        animation-delay: 5s;
+        transition: 3s ease-out;
+        animation-iteration-count: infinite;
+    }
+    @keyframes anime_img {
+        /* 0%  {opacity: 0;}
+        5% {opacity: 0.1;;}
+        25% {opacity: 0.3; transform: skew(25deg, 25deg);}
+        50% {opacity: 0.6; transform: skew(25deg, 25deg);}
+        50% {opacity: 0.6; transform: skew(25deg, 25deg);}
+        25% {opacity: 0.3; transform: skew(25deg, 25deg);}
+        5% {opacity: -0.1;}
+        100%  {opacity: 0;} */
+        0%  {opacity: 0;}
+        5% {opacity: 0.1;;}
+        25% {opacity: 0.3;}
+        50% {opacity: 0.6;}
+        50% {opacity: 0.6;}
+        25% {opacity: 0.3;}
+        5% {opacity: -0.1;}
+        100%  {opacity: 0;}
+    }
+    #menu{
+        width: 50px;
+        display: none;
+    }
+    @media (min-width: 280px) and (max-width: 912px){
+        .home_menu span{
+            display: none;
+        }
+        #menu{
+            width: 50px;
+            display: block;
+        }
+    }
+    main div > p, div > ul{
+        color: white;
+        text-align: justify;
+        max-width: 700px;
+    }
+    main h1, h2{
+        margin-top: 20px;
+        text-align: center;
+        color: white;
+        width: 700px;
+    }
+    main > img{
+        max-width: 700px;
+        margin-top: 10vh;
+    }
+</style>
+<body>
+    <header class="home_header">
+        <div>
+            <h1>Simeon</h1>
+        </div>
+        <div class="home_menu">
+            <span><a href="/home.html">Home</a></span>
+            <span><a href="/skill.html">Skill</a></span>
+            <span><a href="/services.html">Services</a></span>
+            <img src="/img/menu.png" alt="" id="menu">
+        </div>
+    </header>
+    <main>
+        <img src="/img/fullskills.jpg" alt="">
+        <h1>Computer troubleshooting, repair and maintenance </h1>
+        <div>
+            <p> I’m able to identifying and resolving issues 
+                with computer hardware and software. This can include tasks such as diagnosing and
+                 repairing hardware problems, troubleshooting and resolving software issues, and 
+                 configuring and optimizing system settings. Some common tools used for troubleshooting 
+                 and repair include diagnostic software, system logs, and hardware testing equipment.
+                 In addition to my technical knowledge, in computer troubleshooting and repair I have 
+                 strong problem-solving and critical thinking skills </p>
+
+                 <p>This can include identifying and resolving problems with components
+                     such as the CPU, memory, power supply, and peripherals like printers 
+                    and keyboards. It can also involve troubleshooting and resolving software
+                     issues such as operating system errors and application crashes.</p>
+        </div>
+        <h2>Here Some common troubleshooting and repair tasks</h2>
+        <div>
+            <ul>
+             <li> Checking for updates and installing them </li>
+             <li>  Checking for and removing malware or viruses</li>
+             <li> Troubleshooting and resolving driver issues </li>
+             <li>  Testing and replacing hardware components such as memory, hard drives, and power supplies</li>
+             <li> Configuring and optimizing system settings</li>
+             <li>Backing up and restoring data</li>
+            </ul>
+        </div>
+        <br>
+        <br>
+        <h1>VMWare ESXI</h1>
+        <div>
+            <p> VMware ESXi is a type of hypervisor or virtual machine manager developed by VMware, 
+                which is a software layer that allows multiple virtual machines (VMs)
+                to share a single physical server</p>
+        </div>
+        <h2>Some of the Key skills</h2>
+        <div>
+            <ul>
+             <li>	Knowledge of virtualization concepts and technologies </li> 
+             <li> 	Experience with VMware vSphere, which is the management platform for VMware ESXi </li> 
+             <li>	Familiarity with the vSphere client, which is used to manage and configure ESXi hosts and virtual machines </li> 
+             <li>	Understanding of network and storage configuration in a virtualized environment </li> 
+             <li> 	Knowledge of how to create, configure, and manage virtual machines in ESXi, including installing operating systems and applications </li> 
+             <li>	Experience with troubleshooting and performance monitoring in a virtualized environment. </li> 
+            </ul>
+        </div>
+        <br>
+        <br>
+        <h1>Installing and managing a surveillance system camera </h1>
+        <div>
+            <p>A video surveillance system is a network of cameras, monitors/display units,
+                 and recorders. Cameras can be either analog or digital with various features 
+                 to explore, such as resolution, frame rate, color type, and more. Whether 
+                 applied inside or outside the building, it operates 24/7, designed only
+                  for recording movement when necessary.</p>
+        </div>
+        <h2>Some of the Key skills</h2>
+        <div>
+            <ul>
+                <li>  Knowledge of different types of surveillance cameras and their features, such as resolution, lens type, and night vision capabilities </li>
+                <li> Understanding of network protocols and IP addresses, as well as experience configuring network cameras </li>
+                <li>  Familiarity with video management software (VMS) and its features like remote viewing, recording, and playback </li>
+                <li>  Experience with running cables, installing cameras, and troubleshooting connectivity issues </li>
+                <li> Ability to configure and maintain the recording and storage systems, including configuring storage and backup, monitoring disk space usage and archiving footage. </li>
+                <li> Familiarity with security protocols and best practices, such as encryption and access controls, to ensure the security of the system </li>
+                <li> Knowledge of the legal and regulatory requirements for surveillance systems in the area where the cameras will be installed. </li>
+                <li> Understanding of the requirements of customers and being able to provide solutions that meet their needs. </li>
+            </ul>
+        </div>
+        <br>
+        <br>
+        <h1>Microsoft Office</h1>
+        <div>
+            <p>Microsoft Office is a collection of software programs that includes Word (word processing), Excel (spreadsheets),
+                 PowerPoint (presentations), Outlook (email and calendar), and other tools.</p>
+        </div>
+        <h2>Some basic and advence skills </h2>
+        <div>
+            <ul>
+                <li> Creating and editing documents in Word</li>
+                <li> Creating and editing spreadsheets in Excel</li>
+                <li> Creating and editing presentations in PowerPoint </li>
+                <li> Creating and using templates in any of the above programs</li>
+                <li> Using basic formatting tools, such as bold, italic, and underline in Word</li>
+                <li> Using basic formulas and functions in Excel</li>
+                <li> Using slides transitions, animations, and media in PowerPoint</li>
+                <li> Using basic email organization tools in Outlook </li>
+
+                <li> Advanced formatting in Word such as creating tables, columns, and styles</li>
+                <li> Creating charts and graphs in Excel</li>
+                <li>  Creating advanced presentations in PowerPoint such as adding videos, audio, and interactive elements</li>
+                <li>  Creating and organizing email rules and filters in Outlook</li>
+                <li> Using advanced formulas and functions in Excel</li>
+                <li>  Using macros and VBA (Visual Basic for Applications) to automate tasks in Excel and other Office programs</li>
+                <li> Creating forms and surveys in Microsoft Forms </li>
+            </ul>
+            <p>There are many other skills in Microsoft Office, It depend on the specific task or job I'm working on.</p>
+        </div>
+        <br>
+        <br>
+        <h1>SolarWinds and PRTG</h1>
+        <div>
+            <p>SolarWinds and PRTG (Paessler Router Traffic Grapher) are network monitoring software that allows users
+                 to monitor network devices, servers, and applications.</p>
+        </div>
+        <h2>Some skills that may be useful</h2>
+        <div>
+            <ul>
+               <li> Knowledge of network protocols such as TCP/IP, DNS, DHCP, and SNMP. </li>
+               <li> Experience with monitoring and troubleshooting network issues such as packet loss, latency, and bandwidth usage. </li>
+               <li> Knowledge of network topologies and infrastructure, including routers, switches, and firewalls. </li>
+               <li> Understanding of network performance metrics and the ability to interpret and analyze data. </li>
+               <li> Familiarity with scripting and automation tools such as PowerShell and Python to automate tasks and customize PRTG monitoring. </li>
+               <li> Experience with setting up and configuring PRTG sensors and notifications. </li>
+               <li> Knowledge of virtualization and cloud infrastructure. </li>
+               <li>Strong analytical and problem-solving skills to identify and resolve network performance issues. </li>
+               <li>Knowledge of ITIL and IT service management (ITSM) best practices. </li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

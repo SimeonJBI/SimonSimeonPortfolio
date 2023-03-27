@@ -1,0 +1,54 @@
+I remember throughout this project I struggle with a lot of pressure, with whole night no sleep because I lost 
+the network equipement configuration's after almost done, and I had to present the project with a short amount of time. But 
+it's worth the pain and to be honnest I loved spending whole night no sleep by configuring, troubleshooting, 
+I find it awesome!! because I'm a passionnate of this niche.I gain lot of understanding throughout this project
+
+
+
+In order to achieved this project I designed it like this:
+In the network I implement:
+
+All the basics configurations like: renamed, encryption, SSH etc...
+
+A virtual local area network (VLAN) I used it to segment the network into smaller segments.
+It's help me to  improve network security and performance, provide easier management, as well
+as ensuring network flexibility. I ordered the Vlans like this : Native VLAN, Voice VLAN, 
+Management VLAN, Data VLAN.
+
+Spanning Tree Protocol (STP) I Specifically Rapid spanning tree (RSTP) to help me prevent bridge looping
+on LANs that include redundant links. Without RSTP, it would be difficult for me to implement that redundancy
+and still avoid network looping.
+
+VLAN Trunking Protocol (VTP) - To simplify the configurations, I configure all the access switches as VTP client and the
+switches layer 3 int the middle as VTP Client.
+
+Link Aggregation Control Protocol(LACP) - Even though I'm using only CISCO equipement I did'nt use PAgP for the
+etherchannel because if I have to change an equipement other than CISCO. PAGP is a cisco-proprietary protocol and LACP 
+is quite the opposite, Defined within IEEE 802.3ad Besides, LACP can support cross-stack, while PAGP does not since
+it does not support participating interfaces on different physical switches.For the purpose of load balancing, 
+I'm able to balance the traffic load across the links and improves the efficient use of bandwidth.
+
+Port Security to help me secure the network by preventing unknown devices from forwarding packets.
+Once a device connected the switch learn his MAC address, if someone put another devices on that specific
+port, immediately that specific port will shutdown. I shutdown every unused ports on the switches,
+I also used a radius server for the WIFI signal. that's how I secure the network from unknown devices
+
+For the Network redundancy I'm providing multiple paths for traffic, so that data can keep flowing even in the
+event of a failure. for me redundancy equals more reliability.
+
+EIGRP - I used on routers and Layer 3 switches to share routes with other routers, I could use 
+OSPF but I personnaly love EIGRP for his simplicity and it's a CISCO protocols so!!
+
+For communication Purpose between I use in the simulation VPN with GRE but in real life it's VPN with IPsec with the 
+cisco ASA 5525 firewall which I experienced before in real life through the competences fair.
+
+In real life it's dual ISPs I mean failover but because of packet tracer bugs and unvaillable features. in the simulation
+for testing purpose I configured with one ISP.
+
+for the simulation purpose I used a server for the IP-camera and configure a Router as a VoIP server. But
+in real life it will a server for VoIP rather than a router and for the IP-camera a NVR rather the a server. 
+
+To simplify the IP configuration I used DHCP servers for PCs, Cameras, Servers, Printers etc..
+  
+
+

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <title>Services | Portfolio of Simeon</title>
+</head>
+<style>
+     #menu{
+        width: 50px;
+        display: none;
+    }
+    #arrow{
+        display: none;
+    }
+    @media (min-width: 280px) and (max-width: 912px){
+        .home_menu span{
+            display: none;
+        }
+        #menu{
+            width: 50px;
+            display: block;
+        }
+        #arrow{
+            display: block;
+        }
+    }
+    *{
+    box-sizing: border-box;
+}
+.home{
+    width: 100%;
+    height: 85vh;
+    margin-top: 15vh;
+    position: absolute;
+    left: 0;
+    border: 1px solid rgba(139, 137, 137, 0.671);
+    overflow: hidden;
+    font-family: sans-serif;
+    border-bottom: 50px solid rgba(0, 0, 0, 0);
+
+}
+
+.home .slide{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    padding: 0 15px;
+    display: none;
+    animation: slide 2s ease;
+}
+.home .slide.active{
+    display: flex;
+}
+@keyframes slide{
+    0%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.container{
+    max-width: 1170px;
+}
+.home .container{
+    flex-grow: 1;
+}
+.home .caption{
+    width: 50%;
+}
+.home .caption h1{
+    font-size: 50px;
+    color:black;
+    margin: 0;
+    -webkit-text-stroke: 1px white;
+}
+.home .slide.active .caption h1{
+    opacity: 0;
+    animation: captionTxt .5s ease forwards;
+    animation-delay:1s;
+}
+.home .caption p{
+    font-size: 30px;
+    font-weight: 400;
+	color:white;
+    -webkit-text-stroke: 1px black;
+}
+.home .slide.active .caption p{
+    opacity: 0;
+    animation: captionTxt .5s ease forwards;
+    animation-delay: 1.2s;
+}
+.home .caption a{  
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.home .slide.active .caption a{
+    opacity: 0;
+    animation: captionTxt .5s ease forwards;
+    animation-delay: 1.4s;
+}
+@keyframes captionTxt {
+    0%{
+        opacity: 0;transform: translateX(-100px);
+    }
+    100%{
+        opacity:1;transform: translateX(0px);
+    }
+}
+
+.home .controls .prev,
+.home .controls .next{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    margin-top: -20px;
+    color: white;
+    background-color: black;
+    font-size: 40px;
+    cursor: pointer;
+    text-align: center;
+    text-align: center;
+}
+.home .controls .prev:hover,
+.home .controls .next:hover{
+    color: black;
+    border: white;
+    border: 1px solid gray;
+    background-color: white;
+    transition: all 0.5s ease;
+}
+.home .controls .prev{
+    left:0;
+}
+
+.home .controls .next{
+    right:0;
+}
+.home .indicator{
+    position: absolute;
+    left: 50%;
+    bottom: 90px;
+    z-index: 2;
+    transform: translateX(-50%);
+}
+.home .indicator div:hover{
+    background-color: #d8cecea4;
+}
+.home .indicator div.active{
+    background-color: white;
+}
+.home .indicator div{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 0px;
+    background-color: #222222;
+}
+
+/* ================MEDIA QUERY=============== */
+@media (max-width: 767px){
+    .controls{
+        display: none;
+    }
+}
+/* ==================================CAROUSEL============================================== */
+  /* =================================================================================== */
+  /* =================================================================================== */
+  .contain_skill3{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin-top: 95vh;
+    height: 100vh;
+  }
+  .contain_skill3 .content_card{
+    position: relative;
+    max-width: 500px;
+    height: auto;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+    transition: 0.3s ease-in-out;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+  }
+  .contain_skill3 .content_card .img_card img:hover{
+    transform: scale(1.25);
+    transition: ease-in-out 1s;
+  }
+  .contain_skill3 .content_card .img_card img{
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  .contain_skill3 .content_card .img_card{
+    width: 260px;
+    position: relative;
+    top: -60px;
+    left: 20px;
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+  }
+  /* =================================================================================== */
+</style>
+<body>
+    <header class="home_header">
+        <div>
+            <h1>Simeon <span id="arrow">&#8595;</span></h1>
+        </div>
+        <div class="home_menu">
+            <span><a href="/home.html">Home</a></span>
+            <span><a href="/skill.html">Skill</a></span>
+            <span><a href="/services.html">Services</a></span>
+            <img src="/img/menu.png" alt="" id="menu">
+        </div>
+    </header>
+    <main>
+        <section class="home">
+            <div class="slider">
+                <div class="slide active" style="background-image: url('/img/slide-1.jpg');border-radius: 0px 0px 0px 0px;">
+                    <div class="container">
+                        <div class="caption">
+                            <h1>1. Bless the Lord</h1>
+                            <p>The Lord is my sherperd whom shall I fear.</p>
+                            <a href="">Learn More...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('/img/slide-2.jpg');border-radius: 0px 0px 0px 0px;">
+                    <div class="container">
+                        <div class="caption">
+                            <h1>1. Bless the Lord</h1>
+                            <p>The Lord is my sherperd whom shall I fear.</p>
+                            <a href="">Learn More...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('/img/slide-3.jpg');border-radius: 0px 0px 0px 0px;">
+                    <div class="container">
+                        <div class="caption">
+                            <h1>1. Bless the Lord</h1>
+                            <p>The Lord is my sherperd whom shall I fear.</p>
+                            <a href="">Learn More...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="prev">&#8592;</div>
+                <div class="next">&#8594;</div>
+             </div>
+             <div class="indicator">
+             </div>
+         </section>
+         <section>
+            <div class="contain_skill3">
+                <!-- <div class="content_card"> -->
+                  <!-- <div class="img_card">
+                    <img src="/img/n.jpg" alt="">
+                  </div> -->
+                  <!-- <div class="text_card">
+                    <h2>Programming languages</h2>
+                    <ul>
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JAVASCRIPT</li>
+                    </ul>
+                  </div>
+                </div> -->
+                <div class="content_card">
+                  <div class="img_card">
+                    <img src="/img/tech_supp.jpg" alt="">
+                  </div>
+                  <div class="text_card">
+                    <h2>Technical support and troubleshooting </h2>
+                    <p>
+                        On this Service my responsibility is for providing technical support and assistance that helps individuals or 
+                        organizations troubleshoot and resolve problems with their technology products or services. to customers with
+                        computer hardware and software issues. This includes diagnosing and resolving problems related to 
+                        operating systems, hardware components, peripherals,  and application software etc..
+                    </p>
+                    <h2>Key Responsibilities</h2>
+                    <ul>
+                        <li> Respond to customer inquiries regarding computer hardware and software issues</li>
+                            <li>  Diagnose and troubleshoot technical problems related to operating systems, hardware components, peripherals, and application software</li>
+                            <li> Provide solutions and workarounds to customer issues</li>
+                            <li>  Document and track customer issues and provide feedback to the appropriate parties</li>
+                            <li>  Keep up-to-date with the latest technology trends and developments</li>
+                            <li> Provide training and guidance to customers on the use of computer hardware and software</li>
+                            <li>  Other duties as assigned </li>
+                            <li>Etc... </li>
+                    </ul>
+                    <h2>Qualifications </h2>
+                    <ul>
+                        <li>Strong knowledge of computer hardware and software</li>
+                        <li> More than 2+ years Experience with troubleshooting and diagnosing technical problems</li>
+                        <li>Strong customer service skills</li>
+                        <li>Excellent verbal and written communication skills</li>
+                        <li>Ability to work independently and as part of a team</li>
+                        <li>Ability to work under pressure and handle multiple tasks simultaneously</li>
+                        <li>Strong organizational and time management skills</li>
+                        <li>Relevant certifications or degrees in computer science or a related field is a plus.</li>
+                       
+                    </ul>
+                  </div>
+                </div>
+                <div class="content_card">
+                    <div class="img_card">
+                        <img src="/img/cabling&camera.jpg" alt="">
+                      </div>
+                  <div class="text_card">
+                    <h2>Structured cabling and installation system camera surveillance</h2>
+                    <p>
+                        This Services refers to the design, installation, and maintenance of a network's 
+                        physical infrastructure. This includes the cables, connectors, and other components 
+                        that connect devices such as computers, servers, and routers. A structured cabling 
+                        system is designed to be flexible, scalable, and easy to troubleshoot, making it easy 
+                        to add, move, or change devices on the network. The most common types of structured
+                        cabling include Copper (Cat5, Cat6, etc), Fiber optic and Wireless. The standard
+                        for structured cabling is TIA/EIA-568-B which defines the performance characteristics,
+                        and installation requirements for copper and fiber optic cabling systems.
+                    </p>
+                    <p>
+                        For the installation system camera surveillance my job involves structured cabling, setting up and installing security
+                        camera systems in a specific location. This includes tasks such as:
+                    </p>
+                    <h2>Key Responsibilities</h2>
+                    <ul>
+                        <li> Planning the camera layout and determining the best locations for cameras to maximize coverage and visibility.</li>
+                        <li> Running cables and installing cameras, including both fixed and PTZ (pan-tilt-zoom) cameras.</li>
+                        <li> Configuring the cameras and associated equipment, such as digital video recorders (DVRs) or network video recorders (NVRs).</li>
+                        <li> Testing the cameras to ensure they are working properly and that the video feeds are clear and of good quality.</li>
+                        <li> Setting up remote access and/or cloud storage for the cameras if needed.</li>
+                        <li> Training the end-users on how to use and maintain the cameras.</li>
+                    </ul>
+                    <h2>Qualifications </h2>
+                    <ul>
+                        <li>Specific knowledge about the different types of cameras and equipment</li>
+                        <li>Experience with electrical wiring and networking.</li>
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+            </div>
+         </section>
+         <section>
+            <div class="contain_skill3">
+                <div class="content_card">
+                    <div class="img_card">
+                        <img src="/img/minitor.jpg" alt="">
+                      </div>
+                  <div class="text_card">
+                    <h2>Network Monitor with PRTG and Solarwinds </h2>
+                    <p>
+                        As a Network Monitor my responsibility is for monitoring and maintaining the performance 
+                        and security of an organization's computer network. This includes monitoring
+                        network traffic, identifying and resolving issues, and implementing security
+                        measures to protect against cyber threats. I may also be responsible for
+                        configuring and maintaining network equipment, such as routers and switches,
+                        as well as troubleshooting network problems and providing technical support
+                        to users. In addition, I may work with other IT staff to 
+                        plan and implement network upgrades and improvements. I have Strong knowledge
+                        of networking protocols and experience with network monitoring tools
+                    </p>
+                    <h2>Key Responsibilities</h2>
+                    <ul>
+                        <li> Installing, configuring, and maintaining network monitoring software such as PRTG and SolarWinds.</li>
+
+                        <li> Setting up sensors and monitors to track network performance metrics such as bandwidth usage, response time, and uptime.</li>
+                        
+                        <li> Creating alerts and notifications to notify IT staff of any issues or outages.</li>
+                        
+                        <li> Troubleshooting and resolving network problems identified by PRTG and SolarWinds monitoring software.</li>
+                        
+                        <li> Collaborating with IT teams to ensure that all network devices and services are properly configured and monitored.</li>
+                        
+                        <li> Keeping current with new features and updates to PRTG and SolarWinds, and making recommendations for upgrades and enhancements.</li>
+                        
+                        <li> Creating and maintaining detailed documentation of network topology, devices, and monitoring configurations.</li>
+                        
+                        <li> Helping to identify and mitigate security threats to the network through the use of PRTG and SolarWinds.</li>
+                        
+                        <li> Providing training and support to other IT staff on the use of PRTG and SolarWinds.</li>
+                        
+                        <li> Providing regular reports on network performance and availability.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="content_card">
+                    <div class="img_card">
+                        <img src="/img/NA.jpg" alt="">
+                      </div>
+                  <div class="text_card">
+                    <h2>Network administration</h2>
+                    <p>
+                        As a network administrator I'm responsible for the day-to-day operation and
+                         maintenance of an organization's computer network. This includes configuring, 
+                         managing, and monitoring network devices such as routers, switches, and firewalls,
+                        as well as ensuring the network is secure and running efficiently
+                    </p>
+                    <h2>Key Responsibilities</h2>
+                    <ul>
+                        <li>  Configuring and maintaining network hardware such as routers, switches, and firewalls.</li>
+                        <li>  Managing and monitoring network performance to ensure it is running efficiently and effectively.</li>
+                        <li> Implementing and maintaining network security measures such as firewalls and intrusion detection systems.</li>
+                        <li>  Troubleshooting and resolving network issues as they arise.</li>
+                        <li>  Managing and maintaining the organization's telecommunication systems, such as VoIP and VPNs.</li>
+                        <li>  Planning and implementing new network projects, such as network expansions or upgrades.</li>
+                        <li>  Managing and maintaining the organization's wireless network infrastructure.</li>
+                        <li>  Creating and maintaining documentation for the network, including diagrams, configuration files, and procedures.</li>
+                        <li>  Managing and maintaining the organization's DNS and DHCP servers.</li>
+                        <li> Managing and maintaining the organization's virtualized environment.</li>
+                        <li>Staying current with new network technologies and trends, and researching 
+                            new networking solutions to improve the organization's network infrastructure.</li>
+                        <li>Managing user accounts and permissions, and ensuring compliance with organization's policies and regulations</li>
+                        <li>Collaborating with other IT staff, including system administrators and security personnel,
+                             to ensure the network is running smoothly and securely.</li>
+                    </ul>
+                    <p>In general list and tasks may vary depending on the size and type of organization and the specific needs of the network infrastructure.</p>
+                  </div>
+                </div>
+                <div class="content_card">
+                    <div class="img_card">
+                        <img src="/img/admin.jpg" alt="">
+                      </div>
+                <div class="text_card">
+                        <h2>administrative support</h2>
+                        <p>
+                        As an administrative support my role involves providing administrative and clerical support to a team or individual. 
+                        with Strong communication and organizational skills. Additionally, proficiency
+                        in computer skills, such as Microsoft Office Suite. with Strong attention to detail and ability 
+                        to multitask are also critical for success in my role.
+                        </p>
+                        <h2>Key Responsibilities</h2>
+                        <ul>
+                            <li> Scheduling appointments and meetings</li>
+                            <li> Managing calendars and scheduling travel arrangements</li>
+                            <li> Maintaining files and databases</li>
+                            <li> Preparing and editing correspondence, reports, and presentations</li>
+                            <li> Answering phone calls and emails</li>
+                            <li> Managing daily office operations</li>
+                            <li> Coordinating with other departments and external parties</li>
+                            <li> Data entry and record keeping</li>
+                        </ul>
+                  </div>
+                </div>
+            </div>
+         </section>
+    </main>
+</body>
+<script src="/style.js" ></script>
+</html>

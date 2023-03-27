@@ -1,0 +1,206 @@
+
+a{
+
+    text-decoration: none;
+}
+
+/* .d-none {
+
+    display: none;
+} */
+#paint{
+    /* width: 100%;
+    position: relative;
+    z-index: -1;
+    left: 0; */
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    max-width: 600px;
+    max-height: 600px;
+    transform-style: preserve-3d;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cards {
+    position: absolute;
+    top: -610px;
+    right: 270px;
+    height: 400px;
+    width: 600px;
+    margin-top: 20vh;
+    margin-bottom: 20px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    box-sizing: border-box;
+    border: 2px solid black;
+}
+
+.cards label {
+
+    position: absolute;
+    width: 400px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.55s ease;
+    border-radius: 300px 300px 10px 10px;
+    box-sizing: border-box;
+}
+
+.cards .card{
+
+    position: relative;
+    height: 100%;
+    background-color: #d5d7df;
+    border-radius: 300px 300px 10px 10px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
+
+.card .image{
+
+    display: flex;
+}
+
+.card .image img{
+
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 50%);
+    width: 100%;
+    height: 200px;
+    border-radius: 200px 200px 10px 10px;
+    /* object-fit: contain; */
+}
+
+.card .image .dots{
+    text-align: center;
+}
+
+.dots div{
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.dots div:nth-child(1){
+
+    background-color: var(--current-color1);
+}
+
+.dots div:nth-child(2){
+
+    background-color: #5B85F9;
+}
+
+.dots div:nth-child(3){
+
+    background-color: #000;
+}
+
+.card .infos{
+
+    display: block;
+    text-align: end;
+    padding-top: 60px;
+}
+
+.infos span{
+
+    display: block;
+}
+
+.infos .name{
+
+    font-size: 18px;
+    color: var(--current-color1);
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    padding-left: 25%;
+    transition: all .6s ease;
+}
+
+.infos .lorem{
+
+    font-size: 14px;
+    color: black;
+    letter-spacing: 1px;
+}
+
+.card .btn-contact{
+
+    width: 50%;
+    height: 30px;
+    margin: 10px auto;
+    border-radius: 5px;
+    background-color: var(--current-color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 10px;
+    font-weight: 700;
+    transition: all .7s ease;
+}
+#s1:checked~.cards #slide4,
+#s2:checked~.cards #slide5,
+#s3:checked~.cards #slide1,
+#s4:checked~.cards #slide2,
+#s5:checked~.cards #slide3 {
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 45%);
+    transform: translate3d(-70%, 0, -220px);
+    --current-color1: #aa00ff;
+    --current-color2: #404457;
+}
+
+#s1:checked~.cards #slide5,
+#s2:checked~.cards #slide1,
+#s3:checked~.cards #slide2,
+#s4:checked~.cards #slide3,
+#s5:checked~.cards #slide4 {
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%);
+    transform: translate3d(-35%, 0, -120px);
+    --current-color1: #aa00ff;
+    --current-color2: #404457;
+}
+
+#s1:checked~.cards #slide1,
+#s2:checked~.cards #slide2,
+#s3:checked~.cards #slide3,
+#s4:checked~.cards #slide4,
+#s5:checked~.cards #slide5 {
+    box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 50%);
+    box-shadow: -0 -25px -50px -0 rgba(0, 0, 0, 50%);
+    transform: translate3d(0, 0, 0);
+    --current-color1: #0c012b;
+    --current-color2: #ECEAED;
+}
+
+#s1:checked~.cards #slide2,
+#s2:checked~.cards #slide3,
+#s3:checked~.cards #slide4,
+#s4:checked~.cards #slide5,
+#s5:checked~.cards #slide1 {
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%);
+    transform: translate3d(35%, 0, -120px);
+    --current-color1: #aa00ff;
+    --current-color2: #404457;
+}
+
+#s1:checked~.cards #slide3,
+#s2:checked~.cards #slide4,
+#s3:checked~.cards #slide5,
+#s4:checked~.cards #slide1,
+#s5:checked~.cards #slide2 {
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 45%);
+    transform: translate3d(70%, 0, -220px);
+    --current-color1: #aa00ff;
+    --current-color2: #404457;
+}

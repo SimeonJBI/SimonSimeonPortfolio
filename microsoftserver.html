@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <title>Home | Portfolio of Simeon</title>
+</head>
+<style>
+    @media (max-width: 375px){
+    .home_header{
+        position: fixed;
+        width: 100%;
+    }    
+    .home_intro .anime_img{
+        width: 700px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        animation-name: anime_img;
+        animation-duration: 8s;
+        animation-delay: 5s;
+        transition: 3s ease-out;
+        animation-iteration-count: infinite;
+    }
+    @keyframes anime_img {
+        0%  {opacity: 0;}
+        5% {opacity: 0.1;;}
+        25% {opacity: 0.3;}
+        50% {opacity: 0.6;}
+        50% {opacity: 0.6;}
+        25% {opacity: 0.3;}
+        5% {opacity: -0.1;}
+        100%  {opacity: 0;}
+    }
+    body{
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .home_intro{
+        display: block;
+    }
+    .home_about{
+        display: block;
+    }
+    .vertical_line{
+        display: none;
+    }
+    .about_me{
+        display: block;
+    }
+    .about_me > .about_img{
+        width: 100%;
+        text-align: center;
+    }
+    .about_me img{
+    width: 300px;
+    border-radius: 100px 100px 100px 100px;
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+    }
+    .about_me p, hr, h1{
+        width:100%;
+        text-align: justify;
+        /* padding-left: 10px;
+        padding-right: 10px; */
+        box-sizing: border-box;
+    }
+    .about_institut{
+        width:100%;
+        text-align: justify;
+        /* padding-left: 10px;
+        padding-right: 10px; */
+        box-sizing: border-box;
+    }
+    .contact_me{
+        width: 100%;
+        display: block;
+        justify-content: center;
+        justify-content: space-around;
+        /* grid-template-areas: 'left left left left left left' 
+                              'center center center center center center' 
+                              'right right right right right right' 
+                              'last last last last last last'; */
+    }
+    .intro h1{
+        text-align: center;
+        width: 100%;
+        font-size: 40px;
+    }
+    .intro h2{
+        text-align: center;
+        width: 100%;
+        font-size: 35px;
+    }
+    .intro h3{
+        text-align: center;
+        width: 100%;
+        font-size: 25px;
+    }
+    .animation {
+        width: 300px;
+        text-align: center;
+        height:70px;
+        overflow:hidden;
+        margin-left: 1rem;
+        /* font-size: 1.5rem; */
+        font-size: 20px;
+    }
+    .animation > div > div {
+        padding:0.3rem 0.3rem;
+        height:2rem;
+        margin-bottom: 2.81rem;
+        display:inline-block;
+        padding-top: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .photo{
+        width: 100%;
+        text-align: center;
+    }
+    .photo img{
+            margin-top: 60px;
+            width: 300px;
+            border-radius: 1500px 600px 2000px 500px;
+            box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+    }
+    .follow_me{
+        width: 300px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .follow_me h1{
+        width: 100%;
+        padding-left: 50px;
+    }
+    .video_me{
+        text-align: center;
+        width: 300px;
+    }
+    .video_me video{
+        margin-top: 70px;
+        margin-bottom: 20px;
+        width: 300px;
+    }
+    .contact{
+        width: 300px;
+        box-sizing: border-box;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .contact > form > input{
+        width: 100%;
+    }
+    .contact > form > textarea{
+        width: 100%;
+    }
+    .contact > form{
+        width: 300px;
+        padding: 20px;
+    }
+}
+    .contact_me{
+        /* display: grid;
+        grid-template-areas: 'left left center center right right' 'last last last last last last'; */
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+    }
+    main{
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .follow_me #img:hover{
+        transform: scale(1.1);
+        transition: 1s;
+    }
+    .follow_me #img{
+        width: 300px;
+        height: 300px;
+    }
+    .follow_me h1{
+        font-size: 20px;
+        color: white;
+        font-family: 'Passion','Conflict';
+    }
+    .follow_me .img:hover{
+        transform: scale(1.1);
+        transition: 1s;
+    }
+    .follow_me .img{
+        width: 50px;
+        margin-right: 20px;
+    }
+    .follow_me{
+        width: 400px;
+        height: 70vh;
+        grid-area: center;
+        /* background-color: rgb(25, 37, 37); */
+    }
+    .last{
+        height: 10vh;
+        grid-area: last;
+        /* background-color: aqua; */
+    }
+    .video_me video{
+        margin-top: 200px;
+        width: 300px;
+        box-shadow: 10px 10px 20px rgba(255, 255, 255, 0.2);
+    }
+    .video_me{
+        width: 300px;
+        grid-area: left;
+        /* background-color: aqua; */
+    }
+    .contact h1{
+        text-align: center;
+    }
+    .contact{
+        width: 300px;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        box-sizing: border-box;
+        background-image: url(/img/contak.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat; 
+        /* border-radius: 500px 600px 100px 500px; */
+        box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+        /* margin-left: 150px; */
+        grid-area: right;
+        margin: 50px;
+    }
+    .contact form{
+        width: 250px;
+        height: auto;
+        text-align: center;
+        margin: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        /* padding: 50px; */
+        border-radius: 20px;
+
+    }
+    .contact div{
+        background-color: #232533;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        line-height: 5px;
+        padding: 5px;
+        width: auto;
+    }
+    .contact form input{
+        margin-bottom: 5px;
+        width: 200px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        height: 30px;
+        outline: none;
+        font-size: 15px;
+    }
+    .contact form textarea{
+        width: 203px;
+        height: 36px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        outline: none;
+        font-size: 15px;
+    }
+    .contact form h1{
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 20px;
+        margin-top: 0;
+    }
+    .contact form button{
+        width: 100px;
+        height: 30px;
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: rgb(0, 0, 66);
+        border: none;
+        color: white;
+    }
+    .contact form button:hover{
+        background-color: rgb(118, 118, 238);
+        border: 0.5px solid darkblue;
+    }
+    /* ============================== */
+    .about_institut article > img{
+        width: 100px;
+        height: 50px;
+        margin-right: 10px;
+        float: left;
+    }
+    /* ============================== */
+    .footer h1{
+        width: 100%;
+        text-align: center;
+    }
+    .footer{
+        font-size: 10px;
+        text-align: center;
+        width: 100%;
+        height: 10vh;
+        background-color: #232533;
+        box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+        color: white;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    .home_intro .anime_img{
+        width: 700px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        animation-name: anime_img;
+        animation-duration: 8s;
+        animation-delay: 5s;
+        transition: 3s ease-out;
+        animation-iteration-count: infinite;
+    }
+    @keyframes anime_img {
+        /* 0%  {opacity: 0;}
+        5% {opacity: 0.1;;}
+        25% {opacity: 0.3; transform: skew(25deg, 25deg);}
+        50% {opacity: 0.6; transform: skew(25deg, 25deg);}
+        50% {opacity: 0.6; transform: skew(25deg, 25deg);}
+        25% {opacity: 0.3; transform: skew(25deg, 25deg);}
+        5% {opacity: -0.1;}
+        100%  {opacity: 0;} */
+        0%  {opacity: 0;}
+        5% {opacity: 0.1;;}
+        25% {opacity: 0.3;}
+        50% {opacity: 0.6;}
+        50% {opacity: 0.6;}
+        25% {opacity: 0.3;}
+        5% {opacity: -0.1;}
+        100%  {opacity: 0;}
+    }
+    #menu{
+        width: 50px;
+        display: none;
+    }
+    @media (min-width: 280px) and (max-width: 912px){
+        .home_menu span{
+            display: none;
+        }
+        #menu{
+            width: 50px;
+            display: block;
+        }
+    }
+    main div > p, div > ul{
+        color: white;
+        text-align: justify;
+        max-width: 700px;
+    }
+    main h1{
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+    main > img{
+        max-width: 700px;
+        margin-top: 10vh;
+    }
+</style>
+<body>
+    <header class="home_header">
+        <div>
+            <h1>Simeon</h1>
+        </div>
+        <div class="home_menu">
+            <span><a href="/home.html">Home</a></span>
+            <span><a href="/skill.html">Skill</a></span>
+            <span><a href="/services.html">Services</a></span>
+            <img src="/img/menu.png" alt="" id="menu">
+        </div>
+    </header>
+    <main>
+        <img src="/img/srv.jpg" alt="">
+        <h1>Microsoft windows server</h1>
+        <div>
+                    <p>Microsoft Server is a line of server operating systems developed by Microsoft Corporation. Some popular versions
+                        include Windows Server 2008, 2012, 2016, and 2019. These servers can be used to host and manage various types of
+                        services and applications, such as email, databases, web services, and file sharing. They also include features
+                        like active directory and remote access capabilities. Microsoft Server can be used in both on-premises and
+                            cloud-based environments. I have Experience with Windows Server operating system, including installation,
+                            configuration, and maintenance.</p>
+                    <br>
+                    <p>1.	 Knowledge with Active Directory which is a directory service that allows administrators to centrally
+                        manage and organize user accounts, computers, and other resources on a network. It provides a hierarchical 
+                        structure for storing and organizing information about network resources and allows administrators to control
+                        access to those resources.</p>
+                    <p>2.	Knowledge with Group Policy which is a feature that allows to manage and enforce settings and configurations
+                        on Windows computers in a domain. This includes setting security policies, configuring software deployment, and
+                        controlling access to network resources.</p>
+                    <p>3.	 Knowledge with Remote Management which is a Windows Server includes a number of tools and features for remotely 
+                    managing servers, including Remote Desktop, Remote Assistance, and Server Manager. Remote Desktop allows administrators
+                        to remotely log in to a server and interact with it as if they were physically sitting at the console. Remote Assistance
+                        allows administrators to remotely connect to and control another user's computer to assist them with a problem.</p>
+                    <p>4.	Knowledge with PowerShell, a powerful command-line shell and scripting language that can be used to automate
+                    many tasks on Windows servers. PowerShell scripts can be used to automate the deployment of software, manage users
+                        and groups, and perform other tasks.
+                    </p>
+                    <p>5.	Knowledge with File and Print Services, a Windows Server includes built-in support for file and print sharing,
+                    which allows users to access files and printers on the network. This includes configuring file sharing, setting
+                        permissions, and managing print queues.</p>
+                    <p>6.	Knowledge with Hyper-V, Windows Server includes a feature called Hyper-V, which allows administrators
+                    to create and manage virtual machines on the server. This includes creating virtual machines, configuring 
+                    virtual networks, and managing virtual storage.
+                    </p>
+                    <p>7.	Knowledge in Networking, A deep understanding of networking protocols and technologies is
+                    important when working with Windows Server, as the server is often responsible for managing network 
+                    connections and traffic. This includes configuring TCP/IP, DNS, DHCP, and other networking services.</p>
+                    <p>8.	Knowledge with Backup and Recovery, a Windows Server tools and features for backing up and recovering
+                        data, including the Windows Server Backup utility and the Active Directory Recycle Bin. This includes setting
+                            up and configuring backups, managing backup schedules, and restoring data in the event of a failure.</p>
+                    <p>
+                    9.	Knowledge with Monitoring and troubleshooting, Understanding how to monitor the performance of 
+                    a Windows Server and troubleshoot issues that may arise is important for ensuring the server is running 
+                    smoothly and reliably. This includes using Event Viewer and Performance Monitor to monitor server performance,
+                        and troubleshooting issues related to hardware, software, and network connectivity.</p>
+
+    </main>
+</body>
+<!-- <footer class="footer">
+    <h1>Copyrigth all reserved</h1>
+</footer> -->
+</html>
